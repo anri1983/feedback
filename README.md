@@ -1,3 +1,13 @@
+1 - (Done)
+2 - (Done)
+3 - (Done)
+4 - (Done)
+5 - (Done)
+6 - (Done)
+7 - Используя https://console.firebase.google.com/ создать проект в Firebase, инициировать в созданном проекте хостинг, следуя инструкциям интегрировать firebase tools в приложение таким образом, чтобы при вызове  данные из папки build деплоились на хостинг
+8 - выполнить npm run build и firebase deploy, указать ссылку на сайт в readme.md напротив соответствующего пункта
+9* - Реализовать валидацию полей таим образом, что если пользователь не ввел никакие значения в поля name и/или feedback при этом нажал на Add, пустые поля подсвечивались красным бордером
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,0 +1,16 @@
+.divfeed{
+    width: 300px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+input{
+    margin-bottom: 20px; border-radius: 15px; width: 100%; height: 20px; outline: none;
+}
+button{
+    background-color: rgb(255, 230, 0); border-radius: 10px; width: 80px;
+}
+h1{
+    text-align: center; color: cornflowerblue;
+}
+body{background-color: cornsilk;}
