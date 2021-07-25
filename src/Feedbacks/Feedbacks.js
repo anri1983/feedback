@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import styles from './Feedbacks.module.scss';
 import Feedback from '../Feedback/Feedback';
+import React from 'react';
 
 function Feedbacks (){
+    
     const [feedbacks, setFeedbacks] = useState(JSON.parse(localStorage.getItem('feedbacks')) || []);
     const HandleClick = (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
         const name = data.get('name');
+        const check = (name.length > 0) ? name : 'empty';
         const feedback = data.get("feedback");
-        const updatedFeedbacks = [...feedbacks, { name, feedback }];
+        const checkfeed = (feedback.length > 0) ? feedback : 'empty field';
+        const updatedFeedbacks = [...feedbacks, { check, checkfeed }];
         setFeedbacks(updatedFeedbacks);
         localStorage.setItem('feedbacks', JSON.stringify(updatedFeedbacks));
         e.target.elements.name.value = '';
@@ -18,7 +22,7 @@ function Feedbacks (){
     return (
         <>
         <div className = {styles.divfeed}>
-        <h1>Feedbacks</h1>
+        <h1 style = {{textAlign: 'center', color: 'cornFlowerBlue'}}>Feedbacks</h1>
             <form  onSubmit = {HandleClick}>
                 <div>
                     <div>Your name:</div>
@@ -32,9 +36,9 @@ function Feedbacks (){
             </form>
         </div>
         {feedbacks.map((item, idx) => {
-                const {name, feedback} = item;
+                const {check, checkfeed} = item;
                 return <div key ={idx}>                
-                <Feedback name ={name} feedback ={feedback} />
+                <Feedback name ={check} feedback ={checkfeed} />
             </div>})}
     </>
     )
