@@ -5,15 +5,15 @@ import React from 'react';
 
 function Feedbacks (){
     
-    const [feedbacks, setFeedbacks] = useState(JSON.parse(localStorage.getItem('feedbacks')) || []);
-    const HandleClick = (e) => {
+        const [feedbacks, setFeedbacks] = useState(JSON.parse(localStorage.getItem('feedbacks')) || []);
+        const HandleClick = (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
         const name = data.get('name');
-        const check = (name.length > 0) ? name : 'empty';
+        //const check = (name.length > 0) ? name : 'empty field';
         const feedback = data.get("feedback");
-        const checkfeed = (feedback.length > 0) ? feedback : 'empty field';
-        const updatedFeedbacks = [...feedbacks, { check, checkfeed }];
+        //const checkfeed = (feedback.length > 0) ? feedback : 'empty field';
+        const updatedFeedbacks = [...feedbacks, { name, feedback }];
         setFeedbacks(updatedFeedbacks);
         localStorage.setItem('feedbacks', JSON.stringify(updatedFeedbacks));
         e.target.elements.name.value = '';
@@ -26,19 +26,19 @@ function Feedbacks (){
             <form  onSubmit = {HandleClick}>
                 <div>
                     <div>Your name:</div>
-                    <input name = "name" placeholder = "your name" />
+                    <input name = "name" placeholder = "your name" required="required" />
                 </div>
                 <div>
                     <div>Feedback:</div>
-                    <input name = "feedback" placeholder = "feedback" />
+                    <input name = "feedback" placeholder = "feedback" required="required" />
                 </div>
                 <button>Add</button>
             </form>
         </div>
         {feedbacks.map((item, idx) => {
-                const {check, checkfeed} = item;
+                const {name, feedback} = item;
                 return <div key ={idx}>                
-                <Feedback name ={check} feedback ={checkfeed} />
+                <Feedback name ={name} feedback ={feedback} />
             </div>})}
     </>
     )

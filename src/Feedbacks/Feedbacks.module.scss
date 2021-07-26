@@ -11,6 +11,7 @@ button{
     background-color: rgb(255, 230, 0); border-radius: 10px; width: 80px;
 }
 body{background-color: cornsilk;}
-.red{
-    width: 40px; height: 10px; background-color: red;
-}
+
+input:invalid:required {
+    border: 2px outset red;
+  }
