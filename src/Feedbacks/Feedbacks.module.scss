@@ -10,8 +10,17 @@ input{
 button{
     background-color: rgb(255, 230, 0); border-radius: 10px; width: 80px;
 }
-body{background-color: cornsilk;}
 
 input:invalid:required {
     border: 2px outset red;
   }
+  .light1{
+    background: rgba(126, 243, 247, 0.596); color: rgba(0, 0, 0, 0.623);
+  }
+  .dark1{
+    background: rgb(64, 11, 99); color:rgba(255, 255, 255, 0.726);
+  }
+  .data{
+    display: flex; flex-direction: column;
+  }
+  

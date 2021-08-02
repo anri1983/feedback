@@ -1,7 +1,10 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import {ThemeContext} from '../utils/ThemeContext';
+import styles from './Feedback.module.scss';
 
  function Feedback({name, feedback}) {
-    return <ul>
+    const theme = useContext(ThemeContext);
+    return <ul className={`${styles[theme]}`}>
         <li>{name} : {feedback}</li>
     </ul>
     
