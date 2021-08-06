@@ -1,0 +1,13 @@
+GET  https://andrejfirstproject-default-rtdb.europe-west1.firebasedatabase.app/todos.json HTTP/1.1
+Content-Type: application/json
+
+###
+POST  https://andrejfirstproject-default-rtdb.europe-west1.firebasedatabase.app/todos.json HTTP/1.1
+Content-Type: application/json
+
+{
+    "completed": false,
+    "id": 201,
+    "title": "Wild wild west",
+    "userId": 15
+}

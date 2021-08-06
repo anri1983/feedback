@@ -1,15 +1,14 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext} from 'react';
 import styles from './Feedbacks.module.scss';
 import Feedback from '../Feedback/Feedback';
 import React from 'react';
 import {ThemeContext} from '../utils/ThemeContext';
-import {getTodos} from '../data/todos';
 
 
 function Feedbacks (){
     
     const [feedbacks, setFeedbacks] = useState(JSON.parse(localStorage.getItem('feedbacks')) || []);
-    const [data, setData] = useState({})
+   
     const HandleClick = (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
@@ -22,19 +21,11 @@ function Feedbacks (){
         e.target.elements.feedback.value = '';
     };
     const theme = useContext(ThemeContext);
-    useEffect(() => {
-        getTodos().then(data => {
-            setData(data);
-        });
-    }, []);
+    
     return (
         <div  className={`${styles[theme]}`}>
         <div className = {styles.divfeed}>
-        <div className = {styles.data}>
-             <div>UserId: {data.userId};</div> 
-             <div>Title: {data.title};</div> 
-        </div>
-        <h1 style = {{textAlign: 'center', color: 'cornFlowerBlue'}}>Feedbacks</h1>
+        <h1 style = {{textAlign: 'center'}}>Feedbacks</h1>
             <form  onSubmit = {HandleClick}>
                 <div>
                     <div>Your name:</div>
