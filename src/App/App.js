@@ -11,7 +11,8 @@ import {
   } from "react-router-dom";
   import {ThemeContext} from '../utils/ThemeContext';
   import config from '../utils/config';
-  import Footer from '../Footer/Footer'
+  import Footer from '../Footer/Footer';
+  import Counter from "../Counter/Counter";
 
 
   function App() {
@@ -37,10 +38,13 @@ import {
               <li>
                 <Link to="/todos">Todos</Link>
               </li>
+              <li>
+                <Link to="/counter">Counter</Link>
+              </li>
             </ul>
           </nav>
           <div className = {styles.theme}>
-          <Link to ='#' onClick={() => changeTheme('light1')} >Light</Link><span> or </span>
+          <Link to ='#' onClick={() => changeTheme('light1')} >Light</Link><span> &#9672; </span>
           <Link to ='#' onClick={() => changeTheme('dark1')} >Dark</Link>
           </div>
           <footer><Footer/></footer>
@@ -53,6 +57,9 @@ import {
             </Route>
             <Route path="/todos">
               <Todos />
+            </Route>
+            <Route path="/counter">
+              <Counter />
             </Route>
             <Route path="/">
               <Home />
