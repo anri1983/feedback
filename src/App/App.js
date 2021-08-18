@@ -13,6 +13,8 @@ import {
   import config from '../utils/config';
   import Footer from '../Footer/Footer';
   import Counter from "../Counter/Counter";
+  import CounterViaContext from "../CounterViaContext/Counter/CounterViaContext";
+import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
 
 
   function App() {
@@ -41,6 +43,12 @@ import {
               <li>
                 <Link to="/counter">Counter</Link>
               </li>
+              <li>
+                <Link to="/counterViaContext">Counter Via Context</Link>
+              </li>
+              <li>
+                <Link to="/counterViaUseState">Counter Via UseState</Link>
+              </li>
             </ul>
           </nav>
           <div className = {styles.theme}>
@@ -60,6 +68,12 @@ import {
             </Route>
             <Route path="/counter">
               <Counter />
+            </Route>
+            <Route path="/counterViaContext">
+              <CounterViaContext />
+            </Route>
+            <Route path="/counterViaUseState">
+              <CounterViaUseState />
             </Route>
             <Route path="/">
               <Home />
