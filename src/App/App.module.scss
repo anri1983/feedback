@@ -1,9 +1,14 @@
 .theme{
     position: absolute; right: 10px; top: 5px;
 }
-ul {
-   width: 60%; font-size: 20px; display: inline-flex; justify-content: space-between;
+.list {
+   width: 75%; font-size: 20px; display: inline-flex; justify-content: space-between; padding-top: 10px;
 }
+
+.list li{
+    list-style: none;
+}
+
 a{
-    text-decoration: none;
+    text-decoration: none; 
 }

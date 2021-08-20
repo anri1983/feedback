@@ -15,5 +15,8 @@ body {
     background: rgb(248, 248, 248); color: black;
   }
   .dark1{
-    background: rgba(177, 5, 5, 0.938); color:white;
+    background: rgba(177, 5, 5, 0.877); color:white;
+  }
+  .dark1 a{
+     color:white;
   }

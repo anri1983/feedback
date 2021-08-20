@@ -14,7 +14,8 @@ import {
   import Footer from '../Footer/Footer';
   import Counter from "../Counter/Counter";
   import CounterViaContext from "../CounterViaContext/Counter/CounterViaContext";
-import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
+  import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
+  import CounterViaClass from "../CounterViaClass/Counter/CounterViaClass";
 
 
   function App() {
@@ -30,7 +31,7 @@ import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
       <Router>
         <div>
           <nav>
-            <ul>
+            <ul className = {styles.list} >
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -48,6 +49,9 @@ import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
               </li>
               <li>
                 <Link to="/counterViaUseState">Counter Via UseState</Link>
+              </li>
+              <li>
+                <Link to="/counterViaClass">Counter Via Class</Link>
               </li>
             </ul>
           </nav>
@@ -74,6 +78,9 @@ import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
             </Route>
             <Route path="/counterViaUseState">
               <CounterViaUseState />
+            </Route>
+            <Route path="/counterViaClass">
+              <CounterViaClass />
             </Route>
             <Route path="/">
               <Home />
