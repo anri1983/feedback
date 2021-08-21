@@ -2,11 +2,13 @@ import Feedbacks from "../Feedbacks/Feedbacks";
 import Home from '../Home/Home';
 import { useState } from "react";
 import Todos from "../Todos/Todos";
-import styles from './App.module.scss';
+//import styles from './App.module.scss';
+import './App.css';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
+    NavLink,
     Link
   } from "react-router-dom";
   import {ThemeContext} from '../utils/ThemeContext';
@@ -31,31 +33,31 @@ import {
       <Router>
         <div>
           <nav>
-            <ul className = {styles.list} >
+            <ul className = "list" >
               <li>
-                <Link to="/">Home</Link>
+                <NavLink to="/home" activeClassName="selected" >Home</NavLink>
               </li>
               <li>
-                <Link to="/feedbacks">Feedbacks</Link>
+                <NavLink to="/feedbacks" activeClassName="selected">Feedbacks</NavLink>
               </li>
               <li>
-                <Link to="/todos">Todos</Link>
+                <NavLink to="/todos" activeClassName="selected">Todos</NavLink>
               </li>
               <li>
-                <Link to="/counter">Counter</Link>
+                <NavLink to="/counter" activeClassName="selected">Counter</NavLink>
               </li>
               <li>
-                <Link to="/counterViaContext">Counter Via Context</Link>
+                <NavLink to="/counterViaContext" activeClassName="selected">Counter Via Context</NavLink>
               </li>
               <li>
-                <Link to="/counterViaUseState">Counter Via UseState</Link>
+                <NavLink to="/counterViaUseState" activeClassName="selected">Counter Via UseState</NavLink>
               </li>
               <li>
-                <Link to="/counterViaClass">Counter Via Class</Link>
+                <NavLink to="/counterViaClass" activeClassName="selected">Counter Via Class</NavLink>
               </li>
             </ul>
           </nav>
-          <div className = {styles.theme}>
+          <div className = "theme">
           <Link to ='#' onClick={() => changeTheme('light1')} >Light</Link><span> &#9672; </span>
           <Link to ='#' onClick={() => changeTheme('dark1')} >Dark</Link>
           </div>
