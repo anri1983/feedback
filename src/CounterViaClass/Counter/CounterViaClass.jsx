@@ -15,7 +15,9 @@ class CounterViaClass extends React.Component {
   addIncrement = (num) => {
     setTimeout(() => {this.setState({...this.state.counter, counter: this.state.counter +num })}, 2000)
     };
+    
   addAge = () => {this.setState({...this.state.age, age: this.state.age +1} )};
+
   multiply = (multiplifier) => {
     this.setState({...this.state.counter, counter: this.state.counter *multiplifier })
   }
@@ -26,7 +28,7 @@ class CounterViaClass extends React.Component {
       
       <div className = {styles.redIncr}>
        <h1>Counter via class</h1>
-         <div style = {{fontSize: "35px"}} className ={styles.increment}>
+         <div className ={styles.increment}>
            <button className = {styles.btn} onClick={this.onButtonClick}>Decrement</button>
            <div>counter in counter.jsx: {this.state.counter}</div>
          </div>

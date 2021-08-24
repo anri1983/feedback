@@ -18,6 +18,7 @@ import {
   import CounterViaContext from "../CounterViaContext/Counter/CounterViaContext";
   import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
   import CounterViaClass from "../CounterViaClass/Counter/CounterViaClass";
+  import CounterContextViaClass from "../CounterViaContextClass/Counter/CounterViaContext";
 
 
   function App() {
@@ -55,6 +56,9 @@ import {
               <li>
                 <NavLink to="/counterViaClass" activeClassName="selected">Counter Via Class</NavLink>
               </li>
+              <li>
+                <NavLink to="/counterContextViaClass" activeClassName="selected">CounterViaContextClass</NavLink>
+              </li>
             </ul>
           </nav>
           <div className = "theme">
@@ -83,6 +87,9 @@ import {
             </Route>
             <Route path="/counterViaClass">
               <CounterViaClass />
+            </Route>
+            <Route path="/counterContextViaClass">
+              <CounterContextViaClass />
             </Route>
             <Route path="/">
               <Home />
