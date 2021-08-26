@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import {getTodo, getAll, add} from '../data/todos';
 import styles from './Todos.module.scss';
+import { Link } from "react-router-dom";
 
 
 function Todos () {
@@ -47,8 +48,9 @@ function Todos () {
              <h2>Todos:</h2>
              {all.map((todo, idx) =>
             <div key={idx}>
-                {todo.title}
+                {todo.title} <Link to ={`/todos/${todo.uniqueId}`}>Edit</Link> 
             </div>)}
+            
         </div>
         </div>
     )

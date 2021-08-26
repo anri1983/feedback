@@ -19,6 +19,8 @@ import {
   import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
   import CounterViaClass from "../CounterViaClass/Counter/CounterViaClass";
   import CounterContextViaClass from "../CounterViaContextClass/Counter/CounterViaContext";
+  import Todo from "../Todo/Todo";
+  import { getById } from '../data/todos';
 
 
   function App() {
@@ -73,8 +75,11 @@ import {
             <Route path="/feedbacks">
               <Feedbacks />
             </Route>
-            <Route path="/todos">
+            <Route exact path="/todos">
               <Todos />
+            </Route>
+            <Route path="/todos/:todo">
+              <Todo getById = {getById} />
             </Route>
             <Route path="/counter">
               <Counter />
