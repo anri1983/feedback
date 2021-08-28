@@ -34,7 +34,7 @@ function Counter () {
   return(
   <div className = {styles.redIncr}>
   <h1>Counter</h1>
-    <div style = {{fontSize: "40px"}}>
+    <div style = {{fontSize: "30px"}}>
           <button className = {styles.btn} onClick={onButtonClick}>Decrement</button>
           counter in counter.jsx: {counter}
     </div>

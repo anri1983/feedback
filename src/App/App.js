@@ -35,7 +35,7 @@ import {
       <ThemeContext.Provider value = {theme}>
       <Router>
         <div>
-          <nav>
+          <nav className = 'navList'>
             <ul className = "list" >
               <li>
                 <NavLink to="/home" activeClassName="selected" >Home</NavLink>

@@ -1,14 +1,15 @@
 import React  from "react";
-//import {MyConsumer, MyContext} from '../CounterContext';
 import styles from './Buttons.module.scss';
-import { MyConsumer } from "../Counter/CounterViaContext";
+import { MyConsumer } from "../CounterContext";
+
 
 class CounterButtons extends React.Component {
-   
+    
 render() {
     return (
         <MyConsumer>
         {context =>{
+            
             return(
                 <div className = {styles.countBtn}>
             <div>
@@ -19,7 +20,7 @@ render() {
             <button  onClick = {() => {context.addIncrement(2)}}>Increment + 2</button> 
             </div>
             <div className = {styles.multiply}>
-            <form onSubmit = {context.operation}>
+            <form onSubmit = {context.CounterMultiply}>
             <span>Multiply</span><input type="text" name = 'multiplifier'></input>
             <span>Second</span><input type="text" name = 'second'></input> 
                 <button type ='submit'>Operation</button>
