@@ -2,7 +2,6 @@ import Feedbacks from "../Feedbacks/Feedbacks";
 import Home from '../Home/Home';
 import { useState } from "react";
 import Todos from "../Todos/Todos";
-//import styles from './App.module.scss';
 import './App.css';
 import {
     BrowserRouter as Router,
@@ -14,11 +13,11 @@ import {
   import {ThemeContext} from '../utils/ThemeContext';
   import config from '../utils/config';
   import Footer from '../Footer/Footer';
-  import Counter from "../Counter/Counter";
-  import CounterViaContext from "../CounterViaContext/Counter/CounterViaContext";
-  import CounterViaUseState from "../CounterViaState/Counter/CounterViaUseState";
-  import CounterViaClass from "../CounterViaClass/Counter/CounterViaClass";
-  import CounterContextViaClass from "../CounterViaContextClass/Counter/CounterViaContext";
+  import Counter from "../Counter/function/Counter/Counter";
+  import CounterViaContext from "../Counter/function/CounterViaContext/Counter/CounterViaContext";
+  import CounterViaUseState from "../Counter/function/CounterViaState/Counter/CounterViaUseState";
+  import CounterViaClass from "../Counter/class/CounterViaClass/Counter/CounterViaClass";
+  import CounterContextViaClass from "../Counter/class/CounterViaContextClass/Counter/CounterViaContext";
   import Todo from "../Todo/Todo";
   import { getById } from '../data/todos';
 

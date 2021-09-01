@@ -1,7 +1,8 @@
 import React  from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Buttons.module.scss';
-import * as ActionsCreators from '../Redux/ActionsCreators';
+import * as ActionsCreators from '../../../../Redux/ActionsCreators';
+
 
 const CounterButtons = () => {
     const dispatch = useDispatch();

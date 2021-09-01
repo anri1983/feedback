@@ -1,3 +1,65 @@
+1 - сделать рефакторинг src/redux/actionTypes.js и src/redux/actionCreators.js, чтобы можно было обращаться к экшнам через actionTypes.age.INCREMENT, actionTypes.counter.DECREMENT, actionTypes.counter.DECREMENT1, actionTypes.counter.INCREMENT, actionTypes.counter.MULTIPLY, actionTypes.todos.ADD и actionTypes.user.UPDATE
+
+2 - вместо src/redux/reducers.js реализовать:
+
+src/redux/reducers/counterReducers.js (actionTypes.counter.INCREMENT, actionTypes.counter.DECREMENT, actionTypes.counter.MULTIPLY)
+src/redux/reducers/ageReducer.js (actionTypes.age.INCREMENT)
+src/redux/reducers/todoReducer.js (actionTypes.todos.ADD)
+src/redux/reducers/userReducer.js (actionTypes.user.UPDATE)
+чтобы итоговый стэйт заполнялся в следующем формате:
+
+{
+  counter: '7',
+  age: 15,
+  todos: [
+    {
+      id: '1'
+    },
+    {
+      id: '1'
+    },
+    {
+      id: '1'
+    },
+    {
+      id: '3'
+    },
+    {
+      id: '4'
+    },
+    {
+      id: '7'
+    }
+  ],
+  userInfo: {
+    country: 'France'
+  }
+}
+3 - реализовать rootReducer.js используя combineReducers:
+
+const rootReducder = combineReducers({
+    counter: counterReducer,
+    age: ageReducer,
+    todos: todosReducer,
+    userInfo: userReducer
+});
+4 - в src/redux/store.js заменить counterReducer на rootReducder
+
+5 - в src/components/Counter/Counter.jsx наряду с уже существующими кнопками добавить кнопки:
+
+Add todo, которая диспатчит addTodo({ id: counter }), что добавляет новую запись в массив todos в стэйте
+Update user, которая диспатчит udpateUser({ country: "France" }), что устанавливает в стэйте свойству userInfo значение { country: 'France' }
+остальные кнопки в Counter.jsx и CounterButtons.jsx изменяют значение свойства counter в строковом форма, а age - в числовом
+
+6 - сделать рефакторинг структуры counter, чтобы все функциональные и классовые компоненты лежали в соответствующих папках и импортировались в app.js следующим образом:
+
+import Counter from "../Counter/function/Counter/Counter";
+import CounterViaContext from "../Counter/function/CounterViaContext/CounterViaContext";
+import CounterViaUseState from "../Counter/function/CounterViaUseState/CounterViaUseState";
+import CounterViaUseStateAndClasses from "../Counter/class/CounterViaUseStateAndClasses/CounterViaUseStateAndClasses";
+import CounterViaContextAndClassesWithStore from "../Counter/class/CounterViaContextAndClassesWithStore/CounterViaContextAndClassesWithStore";
+7* - на основе функциональных компонентов из src\components\Counter\function\Counter создать классовые компоненты в src\components\Counter\class\Counter
+
 1 - (Done)
 2 - (Done)
 3 - (Done)
