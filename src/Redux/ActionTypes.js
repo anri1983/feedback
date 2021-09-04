@@ -6,6 +6,7 @@ const actionTypes = {
         INCREMENT: 'COUNTER::INCREMENT',
         DECREMENT: 'COUNTER::DECREMENT',
         MULTIPLY: 'COUNTER::MULTIPLY',
+        RESET: 'COUNTER::RESET'
     },
     todos: {
         ADD: 'TODOS::ADD'

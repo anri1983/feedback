@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './Counter.module.scss';
 import CounterButtons from './CounterButtons/CounterButtons';
 import { Provider } from 'react-redux';
 import store from '../../../Redux/Store';
 import { decrement, increment, addTodo, updateUser } from '../../../Redux/ActionsCreators';
+import { useUnmount } from '../../../hooks/useUnmount';
 
 function Counter () {
     const [isStoreSubsribed, setStoreSubsribed] = useState(false);
     const [counter, setCounter] = useState();
-    
+   
+    const refToUnsubscribe = useRef(null);
     useEffect(() => {
         if (!isStoreSubsribed) {
-            store.subscribe(() => {
+          refToUnsubscribe.current = store.subscribe(() => {
                 const state = store.getState();
                 console.log(state)
                 setCounter(state.counter);
@@ -27,6 +29,15 @@ function Counter () {
     const onButtonClick = () => {
         store.dispatch(decrement());
     }
+
+    const onComponentUnmount=() => {
+      if (refToUnsubscribe.current){
+        refToUnsubscribe.current();
+      }
+    } 
+  
+    useUnmount(onComponentUnmount);
+
   return(
   <div className = {styles.redIncr}>
   <h1>Counter</h1>

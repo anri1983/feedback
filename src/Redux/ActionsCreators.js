@@ -6,6 +6,7 @@ export const increment = count => ({ type: actionTypes.counter.INCREMENT, payloa
 export const multiply = value => ({type: actionTypes.counter.MULTIPLY, payload: value});
 export const addTodo = value => ({type: actionTypes.todos.ADD, payload: value});
 export const updateUser = value => ({type: actionTypes.user.UPDATE, payload: value});
+export const reset = () => ({type: actionTypes.counter.RESET});
 
 export function incrementAsync(count) {
     return (dispatch) => {

@@ -20,6 +20,7 @@ import {
   import CounterContextViaClass from "../Counter/class/CounterViaContextClass/Counter/CounterViaContext";
   import Todo from "../Todo/Todo";
   import { getById } from '../data/todos';
+  import CounterViaClassRedux from "../Counter/class/CounterViaClassRedux/Counter";
 
 
   function App() {
@@ -44,9 +45,12 @@ import {
               </li>
               <li>
                 <NavLink to="/todos" activeClassName="selected">Todos</NavLink>
-              </li>
-              <li>
-                <NavLink to="/counter" activeClassName="selected">Counter</NavLink>
+              </li> 
+            </ul>
+            <ul className = "list">
+            <h2>Function</h2>
+            <li>
+                <NavLink to="/counter" activeClassName="selected">Counter Via Function</NavLink>
               </li>
               <li>
                 <NavLink to="/counterViaContext" activeClassName="selected">Counter Via Context</NavLink>
@@ -54,12 +58,12 @@ import {
               <li>
                 <NavLink to="/counterViaUseState" activeClassName="selected">Counter Via UseState</NavLink>
               </li>
-              <li>
-                <NavLink to="/counterViaClass" activeClassName="selected">Counter Via Class</NavLink>
-              </li>
-              <li>
-                <NavLink to="/counterContextViaClass" activeClassName="selected">CounterViaContextClass</NavLink>
-              </li>
+            </ul>
+            <ul className = "list">
+              <h2>Class</h2>
+              <li><NavLink to="/counterContextViaClass" activeClassName="selected">Counter Via Context Class</NavLink></li>
+              <li><NavLink to="/counterViaClass" activeClassName="selected">Counter Via State and Class</NavLink></li>
+              <li><NavLink to="/counterViaClassRedux" activeClassName="selected">Counter Via Class</NavLink></li>
             </ul>
           </nav>
           <div className = "theme">
@@ -94,6 +98,9 @@ import {
             </Route>
             <Route path="/counterContextViaClass">
               <CounterContextViaClass />
+            </Route>
+            <Route path="/counterViaClassRedux">
+              <CounterViaClassRedux />
             </Route>
             <Route path="/">
               <Home />
