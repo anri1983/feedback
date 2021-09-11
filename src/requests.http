@@ -11,3 +11,19 @@ Content-Type: application/json
     "title": "Wild wild west",
     "userId": 15
 }
+
+###
+PATCH    https://andrejfirstproject-default-rtdb.europe-west1.firebasedatabase.app/todos/-Mj-x_RjLvi9cElYFHIk.json HTTP/1.1
+Content-Type: application/json
+
+{
+    "completed": false,
+    "id": 20999,
+    "title": "58",
+    "userId": 7
+}
+
+###
+
+DELETE     https://andrejfirstproject-default-rtdb.europe-west1.firebasedatabase.app/todos/-Mh-08AKYZ9xD9i_w1WX.json HTTP/1.1
+Content-Type: application/json

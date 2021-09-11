@@ -19,8 +19,9 @@ import {
   import CounterViaClass from "../Counter/class/CounterViaClass/Counter/CounterViaClass";
   import CounterContextViaClass from "../Counter/class/CounterViaContextClass/Counter/CounterViaContext";
   import Todo from "../Todo/Todo";
-  import { getById } from '../data/todos';
+  import { getById, update, remove } from '../data/todos';
   import CounterViaClassRedux from "../Counter/class/CounterViaClassRedux/Counter";
+ 
 
 
   function App() {
@@ -78,11 +79,14 @@ import {
             <Route path="/feedbacks">
               <Feedbacks />
             </Route>
+            <Route exact path="/todos/filter/:filter?">
+              <Todos />
+            </Route>
             <Route exact path="/todos">
               <Todos />
             </Route>
-            <Route path="/todos/:todo">
-              <Todo getById = {getById} />
+            <Route path="/todos/:todo/:filter?">
+              <Todo getById = {getById} update={update} remove={remove} />
             </Route>
             <Route path="/counter">
               <Counter />

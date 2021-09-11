@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import {getTodo, getAll, add} from '../data/todos';
 import styles from './Todos.module.scss';
-import { Link } from "react-router-dom";
+import { Link, useParams, useHistory  } from "react-router-dom";
 
 
 function Todos () {
@@ -19,6 +19,12 @@ function Todos () {
             setAll(data);
         });
     }, []);
+    const myRef = useRef();
+    let {filter} = useParams();
+    let history = useHistory();
+
+
+
     const formSubmit = (e) => {
         e.preventDefault();
         const title = e.target.title.value;
@@ -28,12 +34,21 @@ function Todos () {
             id: 203,
             userId: 17
         };
-        add(newObj).then(() => {
+
+        add({todo: newObj}).then(() => {
             setAll([...all, newObj]);
             e.target.title.value = "";
         });
-
     }
+    const onFilterTextChange = () => {
+     history.push(`/todos/filter/${myRef.current.value}`)
+    
+    }
+    useEffect(() => {
+        myRef.current.value = filter || '';
+    }, [filter])
+
+    
     return (
         <div>
         <h1>Todos</h1>
@@ -41,14 +56,18 @@ function Todos () {
             <form onSubmit = {formSubmit}>
                 <input className = {styles.todosub} name= 'title'></input>
                 <button type ='submit'>Submit</button>
+                <input type='text' placeholder='filter' ref={myRef} onChange={onFilterTextChange } className={styles.filterInput}/><br/>
+                filter: {filter}
             </form>
             <h2>Todo:</h2>
              <div>UserId: {data.userId};</div> 
              <div>Title: {data.title};</div>
              <h2>Todos:</h2>
-             {all.map((todo, idx) =>
+             {all.filter(todo =>{
+                 return filter ? todo.title.includes(filter) : true
+             }).map((todo, idx) =>
             <div key={idx}>
-                {todo.title} <Link to ={`/todos/${todo.uniqueId}`}>Edit</Link> 
+                {todo.title} <Link to ={`/todos/${todo.uniqueId}${(filter && '/'+ filter) ||''}`}>Edit</Link> 
             </div>)}
             
         </div>
