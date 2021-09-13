@@ -29,7 +29,7 @@ export async function add(obj) {
 export async function update({uniqueId, title}) {
     return fetch(`https://andrejfirstproject-default-rtdb.europe-west1.firebasedatabase.app/todos/${uniqueId}.json/`, {
           method: 'PATCH',
-          body: JSON.stringify({title})
+          body: JSON.stringify({title}),
       }); 
   }
   

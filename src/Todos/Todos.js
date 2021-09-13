@@ -13,10 +13,10 @@ function Todos () {
         });
     }, []);
 
-    const [all, setAll] = useState([]);
+    const [todos, setTodos] = useState([]);
     useEffect(() => {
         getAll().then(data => {
-            setAll(data);
+            setTodos(data);
         });
     }, []);
     const myRef = useRef();
@@ -35,18 +35,18 @@ function Todos () {
             userId: 17
         };
 
-        add({todo: newObj}).then(() => {
-            setAll([...all, newObj]);
+        add( newObj).then(() => {
+            setTodos([...todos, newObj]);
             e.target.title.value = "";
         });
     }
     const onFilterTextChange = () => {
-     history.push(`/todos/filter/${myRef.current.value}`)
+     history.push(`/todos/filter/${myRef.current.value}`);
     
     }
     useEffect(() => {
         myRef.current.value = filter || '';
-    }, [filter])
+    }, [filter]);
 
     
     return (
@@ -63,7 +63,7 @@ function Todos () {
              <div>UserId: {data.userId};</div> 
              <div>Title: {data.title};</div>
              <h2>Todos:</h2>
-             {all.filter(todo =>{
+             {todos.filter(todo =>{
                  return filter ? todo.title.includes(filter) : true
              }).map((todo, idx) =>
             <div key={idx}>
